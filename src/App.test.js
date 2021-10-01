@@ -1,52 +1,113 @@
-import { render, screen, getByTestId } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+
 import Dashboard from "./component/Dashboard/Dashboard";
 import TransactionNew from "./component/Transaction/TransactionNew";
 
-//  Masih Error
+test("renders teks", () => {
+    
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // Deprecated
+    removeListener: jest.fn(), // Deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
 
-// test("renders teks", () => {
-//   render(<Dashboard />);
-//   const linkElement = screen.getByText("Halo, Customer !");
-//   expect(linkElement).toBeInTheDocument();
-// });
+  render(<Dashboard />);
+  const linkElement = screen.getByText("Halo, Customer !");
+  expect(linkElement).toBeInTheDocument();
+});
 
-// describe("Check containt on Dashboard", () => {
-//   test("checking Card", () => {
-//     render(<Dashboard />);
+describe("Check containt on Dashboard", () => {
+  test("checking Card", () => {
+    Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+    })),
+    });
 
-//     const checkCard = getByTestId("checkCard");
-//     const checkRow = getByTestId("checkRow");
+    render(<Dashboard />);
 
-//     expect(checkCard).toContainElement(checkRow);
-//   });
-// });
+    expect(screen.getByTestId("checkCard")).toContainElement(screen.getByTestId("checkRow"));
+  });
+});
 
-// describe("Check container on Dashboard", () => {
-//   test("checking container", () => {
-//     render(<Dashboard />);
+describe("Check class on container", () => {
+  test("checking class", () => {
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
 
-//     const dashboardContainer = getByTestId("dashboardContainer");
+    render(<Dashboard />);
 
-//     expect(dashboardContainer).toHaveClass("container",{ exact: true});
-//   });
-// });
+    expect(screen.getByTestId("dashboardContainer")).toHaveClass("container", { exact: true });
+  });
+});
 
-// describe("Check have text content", () => {
-//   test("checking context content", () => {
-//     render(<Dashboard />);
+describe("Check have text this content", () => {
+  test("checking text content", () => {
+    Object.defineProperty(window, "matchMedia", {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+        })),
+    });
 
-//     const element = getByTestId("text-content");
+    render(<Dashboard />);
 
-//     expect(element).toHaveTextContent("transaksi");
-//   });
-// });
+    expect(screen.getByTestId("textContent")).toHaveTextContent("transaksi");
+  });
+});
 
-// describe("Check have value input", () => {
-//   test("checking value input", () => {
-//     render(<TransactionNew />);
+describe("Check have value input", () => {
+  test("checking value input", () => {
+    Object.defineProperty(window, "matchMedia", {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+        })),
+    });
 
-//     const numberInput = getByTestId("input-number");
+    render(<TransactionNew />);
 
-//     expect(numberInput).toHaveValue(10);
-//   });
-// });
+    expect(screen.getByTestId("inputNumber")).toHaveValue(0);
+  });
+});

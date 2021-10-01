@@ -15,7 +15,7 @@ export default function Dashboard() {
           <Col xs={24} sm={24} md={24} lg={24} xl={24}>
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={false} />
             <h4>Halo, Customer !</h4>
-            <p data-testid="text-content">Anda sedang tidak melakukan transaksi saat ini</p>
+            <p data-testid="textContent">Anda sedang tidak melakukan transaksi saat ini</p>
           </Col>
         </Row>
       </Card>

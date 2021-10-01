@@ -42,7 +42,7 @@ export default function TransactionNew() {
           </Form.Item>
 
           <Form.Item label="Nominal Transaksi">
-            <Input type="number" placeholder="Rp" data-testid="input-number"></Input>
+            <Input type="number" value="0" placeholder="Rp" data-testid="inputNumber"></Input>
           </Form.Item>
 
           <Form.Item label="Alamat Saat Ini">
