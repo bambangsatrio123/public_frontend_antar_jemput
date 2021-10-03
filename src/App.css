@@ -8,6 +8,7 @@ body {
 .logo {
   height: 32px;
   margin: 16px;
+  text-align: center;
 }
 
 .site-layout .site-layout-background {

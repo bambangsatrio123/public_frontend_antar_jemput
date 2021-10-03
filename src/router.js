@@ -16,7 +16,7 @@ export default function Router() {
         <Route path="/login" exact>
           <LoginPage />
         </Route>
-        <PrivateRoute allowed={user.isLogged} redirect="/login">
+        <PrivateRoute allowed={user.name !=='guest'} redirect="/login">
           <Sidebar />
         </PrivateRoute>
       </Switch>

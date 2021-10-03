@@ -11,12 +11,12 @@ export default function Login() {
    const history = useHistory();
 
    const onFinish = (values) => {
-     setUser({ name: values.username, role: values.roles, isLogged: true });
+     console.log(values)
+     setUser({ name: values.username, role: values.roles });
      history.replace("/beranda");
    };
 
    const [value, setValue] = React.useState();
-
    const onRole = (e) => {
      console.log("radio checked", e.target.value);
      setValue(e.target.value);
