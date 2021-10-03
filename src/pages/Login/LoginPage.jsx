@@ -1,5 +1,5 @@
-import Flogin from "../../component/Login/flogin";
+import Login from "../../component/Login/Login";
 
 export default function LoginPage () {
-  return <Flogin />;
+  return <Login />;
 }
