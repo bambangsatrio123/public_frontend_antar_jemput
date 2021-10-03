@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Image, Layout, Menu } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { Link, Switch, Route } from "react-router-dom";
@@ -23,8 +23,8 @@ export default function Sidebar() {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider trigger={null} collapsed={collapsed} handleOnCollapse={handleOnCollapse}>
-        <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={["0"]} mode="inline">
+        <div className="logo">{collapsed ? <Image src="assets/logo-sidebar.png" preview={false} width={35} /> : <Image src="assets/logo-text-sidebar.png" preview={false} />}</div>
+        <Menu theme="dark" defaultSelectedKeys={["0"]} mode="inline" style={{ marginTop: 50 }}>
           {pageRoutes.map((data, i) => {
             return (
               <Menu.Item key={i} icon={data.icon}>

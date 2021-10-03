@@ -12,15 +12,15 @@ import {
 const pageRoutes = () => {
   return [
     {
-      path: "/customer-beranda",
-      link: "/customer-beranda",
+      path: "/beranda",
+      link: "/beranda",
       icon: <DashboardOutlined />,
       name: "Beranda",
       component: DashboardPage,
     },
     {
-      path: "/customer-transaksibaru",
-      link: "/customer-transaksibaru",
+      path: "/transaksi-baru",
+      link: "/transaksi-baru",
       icon: <BankOutlined />,
       name: "Transaksi",
       component: TransactionPage,

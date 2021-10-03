@@ -1,8 +1,12 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { LoginPage } from "./pages";
 import Sidebar from "./component/Sidebar/Sidebar";
+import PrivateRoute from "./component/PrivateRoute";
+import useUser from "./hooks/useUser";
 
 export default function Router() {
+  const [user] = useUser();
+
   return (
     <BrowserRouter>
       <Switch>
@@ -12,7 +16,9 @@ export default function Router() {
         <Route path="/login" exact>
           <LoginPage />
         </Route>
-        <Sidebar />
+        <PrivateRoute allowed={user.isLogged} redirect="/login">
+          <Sidebar />
+        </PrivateRoute>
       </Switch>
     </BrowserRouter>
   );

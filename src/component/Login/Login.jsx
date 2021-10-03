@@ -1,9 +1,27 @@
 import { Card, Col, Row, Form, Input, Button, Radio } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Link } from 'react-router-dom';
-import "./Login.css"
+import "./Login.css";
+import { useHistory } from "react-router-dom";
+import useUser from "../../hooks/useUser";
+import React from "react";
 
 export default function Login() {
+   const [, setUser] = useUser();
+
+   const history = useHistory();
+
+   const onFinish = (values) => {
+     setUser({ name: values.username, role: values.roles, isLogged: true });
+     history.replace("/beranda");
+   };
+
+   const [value, setValue] = React.useState();
+
+   const onRole = (e) => {
+     console.log("radio checked", e.target.value);
+     setValue(e.target.value);
+   };
+
   
   return (
     <div className="login-wrapper">
@@ -24,7 +42,7 @@ export default function Login() {
               }
               style={{ borderRadius: 16 }}
             >
-              <Form name="normal_login" className="login-form" style={{ margin: "auto", textAlign: "center" }}>
+              <Form name="normal_login" className="login-form" style={{ margin: "auto", textAlign: "center" }} onFinish={onFinish} autoComplete="off">
                 <Form.Item name="username" rules={[{ required: true, message: "Please input your Username!" }]}>
                   <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
                 </Form.Item>
@@ -33,7 +51,7 @@ export default function Login() {
                   <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
                 </Form.Item>
 
-                <Form.Item name="radio-group" label="Select Roles" rules={[{ required: true, message: "Please select your role!" }]}>
+                <Form.Item name="roles" label="Select Roles" onChange={onRole} value={value} rules={[{ required: true, message: "Please select your role!" }]}>
                   <Radio.Group>
                     <Radio value="customer">Customer</Radio>
                     <Radio value="agen">Agen</Radio>
@@ -41,11 +59,9 @@ export default function Login() {
                 </Form.Item>
 
                 <Form.Item>
-                  <Link to="/customer-beranda">
                     <Button type="primary" htmlType="submit" className="login-form-button">
                       Log in
                     </Button>
-                  </Link>
                 </Form.Item>
               </Form>
             </Card>
