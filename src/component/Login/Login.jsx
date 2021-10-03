@@ -1,9 +1,7 @@
-import { Card, Col, Row, Form, Input, Button, Select, Radio } from "antd";
+import { Card, Col, Row, Form, Input, Button, Radio } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from 'react-router-dom';
 import "./Login.css"
-
-const { Option } = Select;
 
 export default function Login() {
   
@@ -11,16 +9,17 @@ export default function Login() {
     <div className="login-wrapper">
       <div className="container">
         <Row style={{ display: "flex", justifyContent: "center", height: "100vh", alignItems: "center" }}>
-          <Col md={9}>
+          <Col xs={16} sm={18} md={14} lg={10}>
             <Card
               cover={
                 <div
                   style={{
                     textAlign: "center",
-                    padding: "30px 0px",
+                    paddingTop: "35px",
+                    paddingBottom: "20px",
                   }}
                 >
-                  <img alt="logo" src="/assets/logoLogin.png" width={220} />
+                  <img className="logo-login" src="/assets/logoLogin.png" alt="logo" />
                 </div>
               }
               style={{ borderRadius: 16 }}
@@ -42,9 +41,11 @@ export default function Login() {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" className="login-form-button">
-                    Log in
-                  </Button>
+                  <Link to="/customer-beranda">
+                    <Button type="primary" htmlType="submit" className="login-form-button">
+                      Log in
+                    </Button>
+                  </Link>
                 </Form.Item>
               </Form>
             </Card>
