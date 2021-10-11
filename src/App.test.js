@@ -24,8 +24,8 @@ Object.defineProperty(window, "matchMedia", {
   expect(linkElement).toBeInTheDocument();
 });
 
-describe("Check containt on Dashboard", () => {
-  test("checking Card", () => {
+describe("Check element card on Dashboard", () => {
+  test("checking validate element is card", () => {
     Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: jest.fn().mockImplementation((query) => ({
@@ -46,7 +46,7 @@ describe("Check containt on Dashboard", () => {
   });
 });
 
-describe("Check class on container", () => {
+describe("Check validate classname is container", () => {
   test("checking class", () => {
     Object.defineProperty(window, "matchMedia", {
       writable: true,
